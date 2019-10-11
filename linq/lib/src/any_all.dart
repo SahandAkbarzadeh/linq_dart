@@ -1,13 +1,7 @@
 TSource any<TSource>(
-  Iterable<TSource> source,
-) {
-  assert(false, "Not implemented");
-}
-
-TSource any2<TSource>(
-  Iterable<TSource> source,
-  bool Function(TSource a) predicate,
-) {
+  Iterable<TSource> source, {
+  bool Function(TSource a) predicate = null,
+}) {
   assert(false, "Not implemented");
 }
 
