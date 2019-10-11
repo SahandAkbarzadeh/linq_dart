@@ -1,4 +1,4 @@
-library linq;
+library linq_extensions;
 
 export './src/aggregate.dart';
 export './src/any_all.dart';
