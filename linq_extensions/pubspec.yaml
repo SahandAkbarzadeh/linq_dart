@@ -5,7 +5,11 @@ homepage: https://github.com/SahandAkbarzadeh/linq_dart
 author: Sahandevs <sahandevs@gmail.com>
 
 environment:
-  sdk: '>=2.6.0-dev.5.0 <3.0.0'
+  sdk: ">=2.6.0-dev.5.0 <3.0.0"
+
+dependencies:
+  linq:
+    path: ../linq
 
 dev_dependencies:
   test: ^1.0.0

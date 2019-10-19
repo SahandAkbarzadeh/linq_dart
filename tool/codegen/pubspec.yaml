@@ -1,0 +1,13 @@
+name: code_gen
+version: 1.0.0
+author: Sahandevs <sahandevs@gmail.com>
+description: >-
+  Generates extension methods from core lib
+homepage: https://github.com/SahandAkbarzadeh/linq_Dart
+environment:
+  sdk: ">=2.1.1 <3.0.0"
+
+dependencies:
+  build: ^1.0.0
+  source_gen: ^0.9.0
+  dart_style: ^1.0.10

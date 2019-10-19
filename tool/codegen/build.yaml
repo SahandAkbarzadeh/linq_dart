@@ -1,0 +1,9 @@
+# Read about `build.yaml` at https://pub.dartlang.org/packages/build_config
+builders:
+  code_gen:
+    target: ":code_gen"
+    import: "package:code_gen/code_gen.dart"
+    builder_factories: ["codeGenFactory"]
+    build_extensions: { ".dart": [".extension.dart"] }
+    auto_apply: root_package
+    build_to: source
