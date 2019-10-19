@@ -1,6 +1,8 @@
-import 'dart:collection';
+import 'dart:collection' show HashSet;
 
 import 'package:linq/src/interfaces.dart';
+
+export 'dart:collection';
 
 Map<TKey, TSource> toMap<TSource, TKey>(
   Iterable<TSource> source,

@@ -12,6 +12,7 @@ class CodeGen extends Generator {
   @override
   FutureOr<String> generate(LibraryReader library, BuildStep buildStep) {
     var extensionName = "";
+    var libPath = "";
     var methods = <String>[];
     for (var element in library.allElements) {
       extensionName = element.enclosingElement.location
@@ -20,6 +21,7 @@ class CodeGen extends Generator {
           .last
           .replaceAll('.dart', '');
       extensionName = "${capitalize(extensionName)}Extensions";
+      libPath = element.enclosingElement.location.toString().split(";").first;
       if (element is FunctionElement) {
         // extract source type
         var _sourceType = element.typeParameters.first;
@@ -75,20 +77,21 @@ $_returnTtype $_funcName$typeParGen($_posParsGen $optParsGen)
 
     var extension_ = """
 
-
+import "${libPath}";
 import 'package:linq/linq.dart' as f;
+import 'interfaces.dart';
 
 extension $extensionName<E> on Iterable<E> {
   ${methods.join("\n")}
 }
 
     """;
-    return extension_;
+    return methods.length == 0 ? null : extension_;
   }
 }
 
-Builder codeGenFactoryBuilder({String header}) => new PartBuilder(
-      [new CodeGen()],
-      ".extension.dart",
+Builder codeGenFactoryBuilder({String header}) => new LibraryBuilder(
+      new CodeGen(),
+      generatedExtension: ".extension.dart",
       header: header,
     );
